@@ -11,6 +11,41 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 20160518215052) do
+
+  create_table "crew_members", force: :cascade do |t|
+    t.string "full_name"
+    t.string "nationality"
+    t.date   "date_of_birth"
+    t.string "email"
+  end
+
+  create_table "crew_voyages", force: :cascade do |t|
+    t.integer "crew_member_id"
+    t.integer "voyage_id"
+  end
+
+  create_table "friends", force: :cascade do |t|
+    t.integer "crew_member_id"
+    t.integer "friend_id"
+  end
+
+  create_table "ports", force: :cascade do |t|
+    t.string "country"
+    t.string "city"
+  end
+
+  create_table "ships", force: :cascade do |t|
+    t.string "name"
+    t.string "company"
+  end
+
+  create_table "voyages", force: :cascade do |t|
+    t.date    "start_date"
+    t.date    "end_date"
+    t.integer "start_port_id"
+    t.integer "end_port_id"
+    t.integer "ship_id"
+  end
 
 end

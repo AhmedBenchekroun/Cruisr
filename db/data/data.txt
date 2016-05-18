@@ -1,0 +1,9 @@
+Ship.create(name: "Love Cruise", company: "Aida Cruises")
+Ship.create(name: "Latin Lover", company: "Costa Cruises")
+
+Port.create(country: "Colombia", city: "Cartagena")
+Port.create(country: "Mexico", city: "Cancun")
+Port.create(country: "Spain", city: "Barcelona")
+
+Voyage.create(start_date: Date.parse("2016-06-02"), end_date: Date.parse("2016-06-12"), start_port_id: 1, end_port_id: 2, ship_id: 1)
+Voyage.create(start_date: Date.parse("2016-06-23"), end_date: Date.parse("2016-06-30"), start_port_id: 2, end_port_id: 3, ship_id: 1)
