@@ -1,0 +1,13 @@
+"crew_members" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "full_name" varchar,
+ "nationality" varchar, "date_of_birth" date, "email" varchar, "password_digest" varchar);
+
+"crew_voyages" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "crew_member_id" integer,
+  voyage_id" integer);
+
+"voyages" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "start_date" date, 
+  "end_date" date, "start_port_id" integer, "end_port_id" integer, "ship_id" integer);
+
+"ships" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "company" varchar);
+
+"ports" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "country" varchar, "city" varchar);
+

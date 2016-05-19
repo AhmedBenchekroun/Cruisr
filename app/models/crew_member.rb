@@ -19,6 +19,7 @@ class CrewMember < ActiveRecord::Base
     end
   end
 
+
   
 end
 
