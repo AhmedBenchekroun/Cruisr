@@ -13,8 +13,10 @@ class CrewMember < ActiveRecord::Base
 
 
   def add_friend(friend)
-    friends << friend
-    friend.friends << self
+    if !friends.include?(friend)
+      friends << friend
+      friend.friends << self
+    end
   end
 
   

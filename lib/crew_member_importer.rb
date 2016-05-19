@@ -25,6 +25,23 @@ def initialize(filename=File.absolute_path('db/data/crew_member.csv'))
     end
     failures = failure_count > 0 ? "(failed to create #{failure_count} CrewMember records)" : ''
     puts "\nDONE #{failures}\n\n"
+    generate_friends
+  end
+
+  def generate_friends
+    puts "Friendster"
+
+    crew_members = CrewMember.all
+
+    crew_members.each do |c1|
+      nb_friends = 1 + rand(crew_members.length)
+      (1..nb_friends).each do |c2|
+        c1.add_friend(CrewMember.find(c2)) unless c1 == CrewMember.find(c2)
+      end
+      
+    end
+
+
   end
 
 end
