@@ -1,3 +1,5 @@
+require 'csv'
+
 class Port < ActiveRecord::Base
 
 

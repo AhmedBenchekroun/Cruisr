@@ -1,3 +1,5 @@
+require 'csv'
+
 class CrewMember < ActiveRecord::Base
   
   has_many :crew_voyages
