@@ -1,5 +1,7 @@
 class CrewMember < ActiveRecord::Base
   
+  belongs_to :ship
+
   has_many :crew_voyages
   has_many :voyages, through: :crew_voyages
   has_and_belongs_to_many :friends, class_name: "CrewMember", 
