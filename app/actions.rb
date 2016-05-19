@@ -11,7 +11,8 @@ end
 
 get '/voyages' do
   @voyages = Voyage.all
-  erb :'voyages/index'
+  @crew_member = current_user
+  erb :voyages
 end
 
 

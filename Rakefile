@@ -31,4 +31,5 @@ task 'db:populate' do
   CrewMemberImporter.new.import
   PortImporter.new.import
   VoyageImporter.new.import
+  CrewVoyageImporter.new.import
 end
