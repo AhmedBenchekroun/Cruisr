@@ -1,5 +1,5 @@
-require 'csv'
-crew_member = CSV.read('crew_member.csv')
+#require 'csv'
+#crew_member = CSV.read('crew_member.csv')
 
 class CrewMember < ActiveRecord::Base
   

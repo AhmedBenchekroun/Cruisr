@@ -11,14 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160519175920) do
+ActiveRecord::Schema.define(version: 20160519191738) do
 
   create_table "crew_members", force: :cascade do |t|
-    t.string  "full_name"
-    t.string  "nationality"
-    t.date    "date_of_birth"
-    t.string  "email"
-    t.integer "ship_id"
+    t.string "full_name"
+    t.string "nationality"
+    t.date   "date_of_birth"
+    t.string "email"
+    t.string "password_digest"
   end
 
   create_table "crew_voyages", force: :cascade do |t|

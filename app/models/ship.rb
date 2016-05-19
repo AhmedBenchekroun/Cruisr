@@ -1,5 +1,5 @@
-require 'csv'
-ship = CSV.read('ship.csv')
+#require 'csv'
+#ship = CSV.read('ship.csv')
 
 class Ship < ActiveRecord::Base
 
