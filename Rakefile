@@ -1,6 +1,8 @@
 require 'rake'
+
 require "sinatra/activerecord/rake"
 require ::File.expand_path('../config/environment', __FILE__)
+require './app_config'
 
 Rake::Task["db:create"].clear
 Rake::Task["db:drop"].clear
@@ -19,4 +21,14 @@ end
 desc 'Retrieves the current schema version number'
 task "db:version" do
   puts "Current version: #{ActiveRecord::Migrator.current_version}"
+end
+
+
+desc 'populate the test database with data'
+task 'db:populate' do
+  AppConfig.establish_connection
+  ShipImporter.new.import
+  CrewMemberImporter.new.import
+  PortImporter.new.import
+  VoyageImporter.new.import
 end
