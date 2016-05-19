@@ -5,7 +5,7 @@ require './lib/ship_importer'
 require './lib/crew_member_importer'
 require './lib/port_importer'
 require './lib/voyage_importer'
-
+require './lib/crew_voyage_importer'
 
 module AppConfig
 
