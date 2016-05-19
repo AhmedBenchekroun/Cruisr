@@ -1,4 +1,5 @@
 require 'csv'
+crew_member = CSV.read('crew_member.csv')
 
 class CrewMember < ActiveRecord::Base
   
@@ -14,5 +15,6 @@ class CrewMember < ActiveRecord::Base
     friend.friends << self
   end
 
+  
 end
 

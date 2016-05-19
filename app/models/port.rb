@@ -1,4 +1,5 @@
 require 'csv'
+port = CSV.read('port.csv')
 
 class Port < ActiveRecord::Base
 
