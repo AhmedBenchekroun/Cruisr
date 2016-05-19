@@ -61,7 +61,11 @@ post '/register' do
     @error = "Email already exists"
     erb :index
   else
-    @user = CrewMember.create(email: params[:email], password: params[:password], password_confirmation: params[:password_confirmation])
+    @user = CrewMember.create(email: params[:email],
+    full_name: params[:full_name],
+    nationality: params[:nationality],
+    date_of_birth: params[:date_of_birth],
+    password: params[:password], password_confirmation: params[:password_confirmation])
     redirect '/voyages'
 
   end
