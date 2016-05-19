@@ -14,6 +14,12 @@ get '/voyages' do
   erb :'voyages/index'
 end
 
+
+get '/ports' do
+  @voyages = Port.all
+  erb :'ports/index'
+end
+
 # get '/voyages/crew_voyage' do
 #    @voyage = Voyage.crew_voyage
 # end
