@@ -24,25 +24,28 @@ get '/voyages' do
   erb :'voyages/index'
 end
 
-
-# get '/voyages/:id' do
-#   @voyage = Voyage.find params[:id]
-#   @other_voyages = Voyage.where()
-#   erb :'voyages/show'
-# end
-
-get '/ports' do
-  @voyages = Port.all
-  erb :'ports/index'
+get '/voyages/:id/matches' do
+  @voyage = Voyage.find(params[:id])
+  @voyages = Voyage.where('start_port_id = ?', @voyage.start_port_id).where('start_date = ?', @voyage.start_date)
+  @user = CrewMember.find(3)
+  @crew_size = Voyage.find(params[:id]).crew_members.length
+  @id = params[:id]
+  erb :'/voyages/matches'
 end
 
+get '/voyages/:id/matches/friends' do
+  @crew_members = Voyage.find(params[:id]).crew_members
+  @ship_name = Voyage.find(params[:id]).ship.name
+  erb :'/voyages/friends'
+end
+
+# get '/voyages/crew_voyage' do
+#    @voyage = Voyage.crew_voyage
+# end
 
 get '/matches' do
   erb :'voyages/matches'
 end
-
-
-
 
 post '/login' do
   @user = CrewMember.find_by_email(params[:email]).try(:authenticate, params[:password])

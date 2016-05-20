@@ -1,4 +1,3 @@
-
   <div> 
  
   <section id="description">
@@ -24,54 +23,16 @@
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>ship</td>
-                <td>faces</td>
-                <td>#</td>
-                <td>#</td>
-              </tr>
-              <tr>
-                < <td>ship</td>
-                <td>faces</td>
-                <td>#</td>
-                <td>#</td>
-              </tr>
-              <tr>
-                <td>ship</td>
-                <td>faces</td>
-                <td>#</td>
-                <td>#</td>
-              </tr>
-              <tr>
-                 <td>ship</td>
-                <td>faces</td>
-                <td>#</td>
-                <td>#</td>
-              </tr>
-              <tr>
-                 <td>ship</td>
-                <td>faces</td>
-                <td>#</td>
-                <td>#</td>
-              </tr>
-              <tr>
-                 <td>ship</td>
-                <td>faces</td>
-                <td>#</td>
-                <td>#</td>
-              </tr>
-              <tr>
-                 <td>ship</td>
-                <td>faces</td>
-                <td>#</td>
-                <td>#</td>
-              </tr>
-              <tr>
-                 <td>ship</td>
-                <td>faces</td>
-                <td>#</td>
-                <td>#</td>
-              </tr>
+              <% @voyages.each do |v| %>
+              <% @friend_list = @user.list_of_friends(v.crew_members) %>
+              <% @ship_name = v.ship.name %>
+                <tr>
+                  <td><%= @ship_name %></td>
+                  <td>faces</td>
+                  <td><%= @friend_list.length %></td>
+                  <td><%= @crew_size %></td>
+                </tr>
+              <% end %>
             </tbody>
           </table>
         </div>
