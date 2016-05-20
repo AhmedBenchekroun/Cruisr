@@ -1,1 +1,23 @@
-index.erb
+<h1>List of voyages</h1>
+
+<!-- #code for getting the voyages of the user -->
+
+<h2>Hi <%= @current_user.full_name %>!</h2>
+
+<% @crew_member.voyages.each do |v| %>
+
+   
+  <table cellpadding="5" cellspacing="5" border="1">
+  <tr>
+  <td><%= v.start_date %></td>
+  <td></td>
+  <td><%= v.ship[:name] %></td>
+  <td></td>
+  <td><%= v.start_port[:city] %></td>
+  <td></td>
+  <td><%= v.start_port[:country] %></td>
+  </tr>
+  </table>
+
+
+<% end %>

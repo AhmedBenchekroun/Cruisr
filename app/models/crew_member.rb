@@ -10,6 +10,14 @@ class CrewMember < ActiveRecord::Base
   has_and_belongs_to_many :friends, class_name: "CrewMember", 
                 join_table: "friends", 
                 association_foreign_key: "friend_id"
+  has_secure_password
+
+
+  validates :full_name, presence: true
+  validates :email, presence: true
+  validates :date_of_birth, presence: true
+  validates :nationality, presence: true
+
 
 
   def add_friend(friend)
