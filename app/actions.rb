@@ -70,6 +70,8 @@ post '/register' do
     date_of_birth: params[:date_of_birth],
     email: params[:email],
     password: params[:password], password_confirmation: params[:password_confirmation])
+    # binding.pry
+    session[:id] = @user.id
     redirect '/voyages'
 
   end
