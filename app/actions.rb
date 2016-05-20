@@ -39,10 +39,19 @@ end
 #   @voyage = Voyage.find params[:id]
 #   erb :'voyages/show'
 # end
+get '/voyages' do
+  erb :'voyages/index'
+end
+get '/friends' do
+  erb :'voyages/friends'
+end
+get '/match' do
+  erb :'voyages/matches'
+end
+get '/signin' do
+  erb :signin
+end
 
-# get '/voyages' do
-#   @voyage = Voyage.where()
-# end
 
 post '/login' do
   @user = CrewMember.find_by_email(params[:email]).try(:authenticate, params[:password])
