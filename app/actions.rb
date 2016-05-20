@@ -19,9 +19,13 @@ get '/signin_signup' do
 end
 
 get '/voyages' do
-  @voyages = Voyage.all
-  @crew_member = current_user
-  erb :'voyages/index'
+  if current_user
+    @voyages = Voyage.all
+    @crew_member = current_user
+    erb :'voyages/index'
+  else
+    redirect '/signin_signup'
+  end
 end
 
 get '/voyages/:id/matches' do
