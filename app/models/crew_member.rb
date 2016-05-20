@@ -32,7 +32,12 @@ class CrewMember < ActiveRecord::Base
     crew_members.each do |crew_member|
     friend_list << crew_member if self.friends.include?(crew_member)
     friend_list
+    end
   end
+
+  def gravatar_url
+    hash = Digest::MD5.hexdigest(email)
+    "http://www.gravatar.com/avatar/#{hash}?d=retro&s=150"
   end
 
   
