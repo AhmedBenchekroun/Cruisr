@@ -9,40 +9,30 @@ get '/' do
   erb :index
 end
 
-get '/voyages' do
-  @voyages = Voyage.all
-  @crew_member = current_user
-  erb :voyages
+get '/signin_signup' do
+  erb :'signin_signup'
 end
 
+get '/voyages' do
+  @voyages = Voyage.all
+  @crew_member = @current_user
+  erb :'voyages'
+end
+
+# get '/voyages/:id' do
+#   @voyage = Voyage.find params[:id]
+#   @other_voyages = Voyage.where()
+#   erb :'voyages/show'
+# end
 
 get '/ports' do
   @voyages = Port.all
   erb :'ports/index'
 end
 
-# get '/voyages/crew_voyage' do
-#    @voyage = Voyage.crew_voyage
-# end
-
-# get '/dates' do
-#   @voyage = Port.find params[:start_port_id]
-#   erb :'voyages/show'
-# end
-
-# get '/voyages/new' do
-#   @voyage = Voyage.new
-#   erb :'voyages/new'
-# end
-
-# get '/voyages/search' do
-#   @voyage = Voyage.find params[:id]
-#   erb :'voyages/show'
-# end
-
-# get '/voyages' do
-#   @voyage = Voyage.where()
-# end
+get '/matches' do
+  erb :'voyages/matches/index'
+end
 
 post '/login' do
   @user = CrewMember.find_by_email(params[:email]).try(:authenticate, params[:password])
@@ -61,18 +51,19 @@ post '/register' do
     @error = "Email already exists"
     erb :index
   else
-    @user = CrewMember.create(email: params[:email],
+    @user = CrewMember.create(
     full_name: params[:full_name],
     nationality: params[:nationality],
     date_of_birth: params[:date_of_birth],
+    email: params[:email],
     password: params[:password], password_confirmation: params[:password_confirmation])
     redirect '/voyages'
 
   end
 end
 
-post '/logout' do
-  session.clear
+get '/logout' do
+  session[:id] = nil
   redirect '/'
 end
 
