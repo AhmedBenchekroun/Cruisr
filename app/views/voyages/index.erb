@@ -34,7 +34,7 @@
                 <td><%= v.start_date %> - <%= v.end_date %> </td>
                 <td><%= v.ship[:name] %></td>
                 <td><%= v.start_port[:city] %> - <%= v.start_port[:country] %> </td>
-                <td> <%= code %> / <a href="matches">Let's check this one</a> </td>
+                <td>  <a href="/voyages/<%= v.id %>/matches">Let's check this one</a> </td>
               </tr>
               <% end %>
             </tbody>
