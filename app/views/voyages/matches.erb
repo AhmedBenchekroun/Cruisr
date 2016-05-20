@@ -1,0 +1,22 @@
+<h1>List of Friends on Ships in Port</h1>
+
+  
+  <% @voyages.each do |v| %>
+
+  <% @friend_list = @user.list_of_friends(v.crew_members) %>
+
+
+
+
+  <table border="1">
+    <tr>
+      <td></td>
+      <td><%= @ship_name %></td>
+      <td></td>
+      <td></td>
+      <td><%= @friend_list.length %></td>
+      <td></td>
+    </tr>
+  </table>
+
+<% end %>

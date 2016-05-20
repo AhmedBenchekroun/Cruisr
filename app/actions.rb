@@ -11,15 +11,27 @@ end
 
 get '/voyages' do
   @voyages = Voyage.all
-  @crew_member = current_user
-  erb :voyages
+  @crew_member = CrewMember.find(1)
+  erb :'/voyages/voyages'
 end
 
-
-get '/ports' do
-  @voyages = Port.all
-  erb :'ports/index'
+get '/voyages/:id/matches' do
+  @voyage = Voyage.find(params[:id])
+  @ship_name = Voyage.find(params[:id]).ship.name
+  @voyages = Voyage.where('start_port_id = ?', @voyage.start_port_id).where('start_date = ?', @voyage.start_date)
+  @user = CrewMember.find(1)
+  @crew_size = Voyage.find(params[:id]).crew_members.length
+  @id = params[:id]
+  erb :'/voyages/matches'
 end
+
+get '/voyages/:id/matches/ship_friends' do
+  @crew_members = Voyage.find(params[:id]).crew_members
+  @ship_name = Voyage.find(params[:id]).ship.name
+  @crew_size = Voyage.find(params[:id]).crew_members.length
+  erb :'/voyages/ship_friends'
+end
+
 
 # get '/voyages/crew_voyage' do
 #    @voyage = Voyage.crew_voyage

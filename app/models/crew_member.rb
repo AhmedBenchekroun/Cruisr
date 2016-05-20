@@ -19,6 +19,13 @@ class CrewMember < ActiveRecord::Base
     end
   end
 
+  def list_of_friends(crew_members)
+    friend_list = []
+    crew_members.each do |crew_member|
+    friend_list << crew_member if self.friends.include?(crew_member)
+    friend_list
+  end
+  end
 
   
 end

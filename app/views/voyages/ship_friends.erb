@@ -1,0 +1,21 @@
+<h1>List of Ship Friends</h1>
+
+  <% @crew_members.each do |c| %>
+
+
+
+  <table border="1">
+    <tr>
+      <td></td>
+      <td><%= @ship_name %></td>
+      <td></td>
+      <td></td>
+      <td><%= c.full_name %></td>
+      <td></td>
+      <td></td>
+      <td><%= @crew_size %></td>
+      <td></td>
+    </tr>
+  </table>
+
+<% end %>
