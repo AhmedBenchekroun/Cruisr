@@ -1,3 +1,8 @@
+get '/friends' do
+  erb :'voyages/friends'
+end
+
+
 # Homepage (Root path)
 helpers do
   def current_user
@@ -10,14 +15,15 @@ get '/' do
 end
 
 get '/signin_signup' do
-  erb :'signin_signup'
+  erb :'signin'
 end
 
 get '/voyages' do
   @voyages = Voyage.all
-  @crew_member = @current_user
-  erb :'voyages'
+  @crew_member = current_user
+  erb :'voyages/index'
 end
+
 
 # get '/voyages/:id' do
 #   @voyage = Voyage.find params[:id]
@@ -30,9 +36,13 @@ get '/ports' do
   erb :'ports/index'
 end
 
+
 get '/matches' do
-  erb :'voyages/matches/index'
+  erb :'voyages/matches'
 end
+
+
+
 
 post '/login' do
   @user = CrewMember.find_by_email(params[:email]).try(:authenticate, params[:password])

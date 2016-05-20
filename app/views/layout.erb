@@ -2,6 +2,11 @@
 <html lang="en">
 <head>
   
+
+
+
+
+
   <!--
     application.css is where you put your styles
   -->
@@ -21,16 +26,26 @@
     <div class="container">
       <div class="row">
         <div class="col-sm-6">
-          <a href="#" class="logo"><img src="./images/logo.png" alt="CRUISR LOGO" height="20" width="120" /></a> 
+          <a href="#" class="logo"><img src="./images/logo.png" alt="CRUISR LOGO" height="40" width="180" /></a> 
         </div>
         <div class="col-sm-6">
           <ul class="soc_nav">
-            <li><a href="/login">LOGIN  / LOGOUT</a></li>
+
+            <li>
+            <% if session[:id] == nil %>
+          <a href="/signin_signup">Sign in/ Sign up</a>
+          <% else %>
+            <span> <%= current_user.full_name %> / <a href="/logout">Logout</a></span>
+          <% end %></li>
           </ul>
+
+
         </div>
       </div>
     </div>
+
   </header>
+ 
 
   <%= yield %>
 
@@ -39,12 +54,7 @@
     <div class="container">
       <div class="row">
         <div class="col-sm-6 col-sm-push-6">
-          <!-- <ul class="soc_nav">
-            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-            <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
-            <li><a href="#"><i class="fa fa-linkedin-square"></i></a></li>
-          </ul> -->
+          
         </div>
         <div class="col-sm-6 col-sm-pull-6">
             <p class="copyright">&copy; Copyright 2016 Cruisr App</p>
@@ -56,6 +66,14 @@
       </div> 
   </footer>
 
+<script src="/javascript/jquery-1.8.2.min.js"></script>
+<script src="/javascript/bootstrap.min.js"></script>
+<script src="/javascript/owl.carousel.min.js"></script>
+<script src="/javascript/jquery.validate.min.js"></script>
+<script src="/javascript/wow.min.js"></script>
+<script src="/javascript/smoothscroll.js"></script>
+<script src="/javascript/jquery.smooth-scroll.min.js"></script>
+<script src="/javascript/custom.js"></script>
 
   <!-- FOOTER END --> 
 
