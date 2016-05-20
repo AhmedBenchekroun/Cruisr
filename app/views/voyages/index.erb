@@ -8,7 +8,7 @@
 
       <div class="row wow fadeInLeft" data-wow-duration="1.5s" data-wow-offset="100">
         <div class="col-md-12">
-       <h2 style="text-align:center">Hi <%= current_user.full_name %>, this is your itinerary</h2> 
+       <h2 style="text-align:center">Hi <%= current_user.full_name %>, this are your itineraries</h2> 
         </div>
       </div>
       
@@ -18,7 +18,7 @@
           <table class="table table-hover">
             <thead>
               <tr class="title">
-                <th colspan="4" style="text-align: center;">Itinerary</th>
+                <th colspan="4" style="text-align: center;">Itineraries</th>
               </tr>
               <tr>
                 <th>Date</th>
@@ -34,7 +34,7 @@
                 <td><%= v.start_date %> - <%= v.end_date %> </td>
                 <td><%= v.ship[:name] %></td>
                 <td><%= v.start_port[:city] %> - <%= v.start_port[:country] %> </td>
-                <td><input type="checkbox" name="checkbox" id="checkbox"></td>
+                <td>  <a href="/voyages/<%= v.id %>/matches">Let's check this one</a> </td>
               </tr>
               <% end %>
             </tbody>

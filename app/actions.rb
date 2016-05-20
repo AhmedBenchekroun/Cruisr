@@ -43,11 +43,7 @@ get '/voyages/:id/matches/friends' do
   erb :'/voyages/friends'
 end
 
-# get '/voyages/crew_voyage' do
-#    @voyage = Voyage.crew_voyage
-# end
-
-get '/matches' do
+get '/:id/matches' do
   erb :'voyages/matches'
 end
 
