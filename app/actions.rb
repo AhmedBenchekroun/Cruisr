@@ -27,7 +27,7 @@ end
 get '/voyages/:id/matches' do
   @voyage = Voyage.find(params[:id])
   @voyages = Voyage.where('start_port_id = ?', @voyage.start_port_id).where('start_date = ?', @voyage.start_date)
-  @user = CrewMember.find(3)
+  @user = current_user
   @crew_size = Voyage.find(params[:id]).crew_members.length
   @id = params[:id]
   erb :'/voyages/matches'
