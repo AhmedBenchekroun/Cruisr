@@ -1,3 +1,6 @@
+#require 'csv'
+#voyage = CSV.read('voyage.csv')
+
 class Voyage < ActiveRecord::Base
 
   belongs_to :ship
