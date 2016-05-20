@@ -27,7 +27,10 @@ class CrewMember < ActiveRecord::Base
     end
   end
 
-
+def gravatar_url
+   hash = Digest::MD5.hexdigest(email)
+   "http://www.gravatar.com/avatar/#{hash}?d=retro&s=150 (3KB)"
+ end
   
 end
 
