@@ -30,9 +30,9 @@ class CrewMember < ActiveRecord::Base
   def list_of_friends(crew_members)
     friend_list = []
     crew_members.each do |crew_member|
-    friend_list << crew_member if self.friends.include?(crew_member)
-    friend_list
+    friend_list << crew_member if self.friends.include?(crew_member)    
     end
+    friend_list
   end
 
   def gravatar_url
