@@ -1,9 +1,9 @@
-get '/friends' do
-  erb :'voyages/friends'
-end
+#get '/friends' do
+#  erb :'voyages/friends'
+#end
 
 
-# Homepage (Root path)
+
 helpers do
   def current_user
     session[:id] ? @current_user = CrewMember.find(session[:id]) : nil
@@ -37,11 +37,19 @@ get '/voyages/:id/matches' do
   erb :'/voyages/matches'
 end
 
-get '/voyages/:id/matches/friends' do
-  @crew_members = Voyage.find(params[:id]).crew_members
-  @ship_name = Voyage.find(params[:id]).ship.name
+get '/voyages/:id/matches/:v_id/friends/' do
+  @crew_members = Voyage.find(params[:v_id]).crew_members
+  @ship_name = Voyage.find(params[:v_id]).ship.name
+  @friends_list = current_user.list_of_friends(@crew_members)
   erb :'/voyages/friends'
 end
+
+get '/voyages/:id/matches/crew-members' do
+  @crew_members = Voyage.find(params[:id]).crew_members
+  @ship_name = Voyage.find(params[:id]).ship.name
+  erb :'/voyages/crew-members'
+end
+
 
 get '/:id/matches' do
   erb :'voyages/matches'

@@ -29,7 +29,7 @@
                 <tr>
                   <td><%= @ship_name %></td>
                   <td>faces</td>
-                  <td><%= @friend_list.length %></td>
+                  <td><%= @friend_list.length %> - <a href='/voyages/<%= @voyage.id %>/matches/<%= v.id %>/friends/'> See Who</a></td>
                   <td><%= @crew_size %></td>
                 </tr>
               <% end %>
