@@ -1,5 +1,5 @@
 <div>
-<h1>Crew members on the <%= @ship_name %></h1>   
+<h1>Crew on the <%= @ship_name %></h1>   
   <section id="timeline">
     <div class="container-fluid wow fadeInRight" data-wow-duration="1s">
       <div id="timeline-slider" class="owl-carousel">
@@ -12,6 +12,18 @@
               
                 <h3><%= c.full_name %></h3>
                 <p><%= @ship_name%></p>
+
+                <%  if @user.is_friend?(c)
+                      @button = "<button id='#btn-unfriend'>Unfriend</button>" 
+                    else
+                      @button = "<button id='#btn-addFriend'>Send Friend Request </button>"
+                    end
+
+                    @button = 'This is you' if c == @user
+                %>
+                
+                <%= @button %>
+
               </div>
           </div>
         <% end %>

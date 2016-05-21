@@ -18,7 +18,9 @@ class CrewMember < ActiveRecord::Base
   validates :date_of_birth, presence: true
   validates :nationality, presence: true
 
-
+  def is_friend?(crew_member)
+    friends.include?(crew_member)
+  end
 
   def add_friend(friend)
     if !friends.include?(friend)
@@ -29,8 +31,8 @@ class CrewMember < ActiveRecord::Base
 
   def list_of_friends(crew_members)
     friend_list = []
-    crew_members.each do |crew_member|
-    friend_list << crew_member if self.friends.include?(crew_member)    
+    crew_members.each do |crew_member|   
+    friend_list << crew_member if is_friend?(crew_member)    
     end
     friend_list
   end

@@ -18,6 +18,7 @@ get '/signin_signup' do
   erb :'signin'
 end
 
+#VOYAGES VIEW
 get '/voyages' do
   if current_user
     @voyages = Voyage.all
@@ -28,15 +29,18 @@ get '/voyages' do
   end
 end
 
+#MATCHES VIEW
 get '/voyages/:id/matches' do
   @voyage = Voyage.find(params[:id])
+  @port = @voyage.start_port.city
+  @date = @voyage.start_date
   @voyages = Voyage.where('start_port_id = ?', @voyage.start_port_id).where('start_date = ?', @voyage.start_date)
   @user = current_user
-  @crew_size = Voyage.find(params[:id]).crew_members.length
   @id = params[:id]
   erb :'/voyages/matches'
 end
 
+#FRIENDS VIEW
 get '/voyages/:id/matches/:v_id/friends/' do
   @crew_members = Voyage.find(params[:v_id]).crew_members
   @ship_name = Voyage.find(params[:v_id]).ship.name
@@ -44,17 +48,21 @@ get '/voyages/:id/matches/:v_id/friends/' do
   erb :'/voyages/friends'
 end
 
-get '/voyages/:id/matches/crew-members' do
-  @crew_members = Voyage.find(params[:id]).crew_members
-  @ship_name = Voyage.find(params[:id]).ship.name
+#CREW VIEW
+get '/voyages/:id/matches/:v_id/crew/' do
+  @crew_members = Voyage.find(params[:v_id]).crew_members
+  #@crew_members.delete(current_user)
+  @user = current_user
+  @ship_name = Voyage.find(params[:v_id]).ship.name
   erb :'/voyages/crew-members'
 end
 
 
-get '/:id/matches' do
-  erb :'voyages/matches'
-end
+#get '/:id/matches' do
+#  erb :'voyages/matches'
+#end
 
+#LOGIN
 post '/login' do
   @user = CrewMember.find_by_email(params[:email]).try(:authenticate, params[:password])
   if @user
@@ -66,6 +74,7 @@ post '/login' do
   end
 end
 
+#SIGN UP
 post '/register' do
   @user = CrewMember.find_by_email(params[:email])
   if @user
@@ -78,13 +87,13 @@ post '/register' do
     date_of_birth: params[:date_of_birth],
     email: params[:email],
     password: params[:password], password_confirmation: params[:password_confirmation])
-    # binding.pry
     session[:id] = @user.id
     redirect '/voyages'
 
   end
 end
 
+#LOGOUT
 get '/logout' do
   session[:id] = nil
   redirect '/'

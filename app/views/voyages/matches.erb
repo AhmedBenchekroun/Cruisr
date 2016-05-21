@@ -4,7 +4,7 @@
     <div class="container">
       <div class="row wow fadeInLeft" data-wow-duration="1.5s" data-wow-offset="100">
         <div class="col-md-12">
-          <h2 style="text-align:center"> [ Ruby code goes here ]  Ships a dn friends </h2>  
+          <h2 style="text-align:center"> List of matching itineraries at <%= @port %> on <%= @date %></h2>  
         </div>
       </div>
       
@@ -30,7 +30,7 @@
                   <td><%= @ship_name %></td>
                   <td>faces</td>
                   <td><%= @friend_list.length %> - <a href='/voyages/<%= @voyage.id %>/matches/<%= v.id %>/friends/'> See Who</a></td>
-                  <td><%= @crew_size %></td>
+                  <td><%= v.crew_members.length %> - <a href='/voyages/<%= @voyage.id %>/matches/<%= v.id %>/crew/'> See Who</a></td>
                 </tr>
               <% end %>
             </tbody>
