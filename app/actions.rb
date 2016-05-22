@@ -1,8 +1,3 @@
-#get '/friends' do
-#  erb :'voyages/friends'
-#end
-
-
 
 helpers do
   def current_user
@@ -45,8 +40,6 @@ get '/voyages' do
   end
 end
 
-
-
 #MATCHES VIEW
 get '/voyages/:id/matches' do
   @voyage = Voyage.find(params[:id])
@@ -62,7 +55,7 @@ end
 get '/voyages/:id/matches/:v_id/friends/' do
   @crew_members = Voyage.find(params[:v_id]).crew_members
   @ship_name = Voyage.find(params[:v_id]).ship.name
-  @friends_list = current_user.list_of_friends(@crew_members)
+  @friends_list = current_user.friends_on_voyage(params[:v_id])
   erb :'/voyages/friends'
 end
 
@@ -76,11 +69,6 @@ get '/voyages/:id/matches/:v_id/crew/' do
   @ship_name = Voyage.find(params[:v_id]).ship.name
   erb :'/voyages/crew-members'
 end
-
-
-#get '/:id/matches' do
-#  erb :'voyages/matches'
-#end
 
 #LOGIN
 post '/login' do
