@@ -34,7 +34,7 @@
                 <%  if @user.is_friend?(c)
                       @button = "<button id='#btn-unfriend'>Unfriend</button>" 
                     else
-                      @button = "<button id='#btn-addFriend'>Send Friend Request </button>"
+                      @button = "<button id='#btn-addFriend'>Add friend</button>"
                     end
                     @button = 'This is you' if c == @user
                 %>                
