@@ -53,6 +53,7 @@ end
 
 #FRIENDS VIEW
 get '/voyages/:id/matches/:v_id/friends/' do
+  @voyage_id = params[:id]
   @crew_members = Voyage.find(params[:v_id]).crew_members
   @ship_name = Voyage.find(params[:v_id]).ship.name
   @friends_list = current_user.friends_on_voyage(params[:v_id])
@@ -61,6 +62,7 @@ end
 
 #CREW VIEW
 get '/voyages/:id/matches/:v_id/crew/' do
+  @voyage_id = params[:id]
   @crew_members = Voyage.find(params[:v_id]).crew_members
   #@crew_members.delete(current_user)
   @city = Voyage.find(params[:id]).start_port.city
