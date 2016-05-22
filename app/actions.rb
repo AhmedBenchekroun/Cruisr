@@ -79,8 +79,8 @@ post '/login' do
     session[:id] = @user.id
     redirect '/voyages'
   else
-    @error = 'Wrong email'
-    erb :index
+    @login_error = 'Wrong email or password. Please Try agin.'
+    erb :signin
   end
 end
 
@@ -88,8 +88,8 @@ end
 post '/register' do
   @user = CrewMember.find_by_email(params[:email])
   if @user
-    @error = "Email already exists"
-    erb :index
+    @register_error = "Email already exists"
+    erb :signin
   else
     @user = CrewMember.create(
     full_name: params[:full_name],

@@ -38,7 +38,15 @@
               <% @ship_name = v.ship.name %>
                 <tr>
                   <td><%= @ship_name %></td>
-                  <td>faces</td>
+                  <td>
+                    
+                 <% (1..@friend_list.length).each do %>
+                  <button type="button" class="btn btn-default btn-md">
+                   <span class="glyphicon glyphicon-user" aria-hidden="true"> </span>
+                 </button>
+                 <% end %>
+
+                  </td>
                   <td><%= @friend_list.length %> - <a href='/voyages/<%= @voyage.id %>/matches/<%= v.id %>/friends/'> See Who</a></td>
                   <td><%= v.crew_members.length %> - <a href='/voyages/<%= @voyage.id %>/matches/<%= v.id %>/crew/'> See Who</a></td>
                 </tr>

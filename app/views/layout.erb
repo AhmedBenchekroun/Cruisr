@@ -39,7 +39,9 @@
             <% if session[:id] == nil %>
           <a href="/signin_signup">Sign in/Sign up</a>
           <% else %>
-          <a href="/profile"><%= current_user.full_name %></a>/<a href="/logout">Logout</a>
+          <a href="/profile"><%= current_user.full_name %></a>/<a href="/logout"><button type="button" class="btn btn-default btn-sm">
+           <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
+           </button> Logout</a>
           <% end %></li>
 
             
