@@ -12,6 +12,8 @@
               <div class="desc">
               
                 <h3><%= c.full_name %></h3>
+                <p><%= c.email %></p>
+                <p><%= c.nationality %></p>
                 <p><%= @ship_name%></p>
 
                 <%  if @user.is_friend?(c)
