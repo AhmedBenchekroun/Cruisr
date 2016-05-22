@@ -1,0 +1,32 @@
+<div>
+<h1>Your Profile</h1> 
+
+<div>
+  <div class="photo"><img src="<%= @user.gravatar_url %>" alt="Lector1" class="img-circle"></div>
+  <div> <%= @user.full_name %></div>
+
+
+</div>
+
+  <section id="timeline">
+    <div class="container-fluid wow fadeInRight" data-wow-duration="1s">
+      <div id="timeline-slider" class="owl-carousel">
+
+      <h2>Your Friends</h2>
+        <% @user.friends.each do |f| %>
+          <div class="item">
+              <div class="photo"><img src="<%= f.gravatar_url %>" alt="Lector1" class="img-circle"></div>
+              
+              <div class="desc">
+              
+                <h3><a href="/<%= f.id %>/voyages/"><%= f.full_name %></a></h3>                
+
+              </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+    
+  </section>
+</div>
+

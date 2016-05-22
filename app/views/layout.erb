@@ -26,7 +26,7 @@
     <div class="container">
       <div class="row">
         <div class="col-sm-6">
-          <a href="#" class="logo"><img src="./images/logo.png" alt="CRUISR LOGO" height="40" width="180" /></a> 
+          <a href="/" class="logo"><img src="/images/logo.png" alt="CRUISR LOGO" height="40" width="180" /></a> 
         </div>
         <div class="col-sm-6">
           <ul class="soc_nav">
@@ -35,7 +35,7 @@
             <% if session[:id] == nil %>
           <a href="/signin_signup">Sign in/ Sign up</a>
           <% else %>
-            <span> <%= current_user.full_name %> / <a href="/logout">Logout</a></span>
+            <span> <a href="/profile"><%= current_user.full_name %></a> / <a href="/logout">Logout</a></span>
           <% end %></li>
           </ul>
 
