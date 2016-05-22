@@ -18,6 +18,11 @@ get '/signin_signup' do
   erb :'signin'
 end
 
+get '/profile' do
+  @user = current_user
+  erb :profile
+end
+
 #VOYAGES VIEW
 get '/voyages' do
   if current_user
@@ -52,6 +57,8 @@ end
 get '/voyages/:id/matches/:v_id/crew/' do
   @crew_members = Voyage.find(params[:v_id]).crew_members
   #@crew_members.delete(current_user)
+  @city = Voyage.find(params[:id]).start_port.city
+  @date = Voyage.find(params[:id]).start_date
   @user = current_user
   @ship_name = Voyage.find(params[:v_id]).ship.name
   erb :'/voyages/crew-members'

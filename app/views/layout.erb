@@ -35,7 +35,7 @@
             <% if session[:id] == nil %>
           <a href="/signin_signup">Sign in/ Sign up</a>
           <% else %>
-            <span> <%= current_user.full_name %> / <a href="/logout">Logout</a></span>
+            <span> <a href="/profile"><%= current_user.full_name %></a> / <a href="/logout">Logout</a></span>
           <% end %></li>
           </ul>
 
