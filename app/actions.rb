@@ -23,16 +23,29 @@ get '/profile' do
   erb :profile
 end
 
+
+#VOYAGES OF CREW MEMBER
+get '/:id/voyages/' do
+  if current_user
+    @crew_member = CrewMember.find(params[:id])
+    erb :'voyages/crew_voyage'
+  else
+    redirect '/signin_signup'
+  end
+
+end
+
 #VOYAGES VIEW
 get '/voyages' do
   if current_user
-    @voyages = Voyage.all
     @crew_member = current_user
     erb :'voyages/index'
   else
     redirect '/signin_signup'
   end
 end
+
+
 
 #MATCHES VIEW
 get '/voyages/:id/matches' do
