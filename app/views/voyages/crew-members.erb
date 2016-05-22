@@ -28,6 +28,8 @@
               <div class="photo"><img src="<%= c.gravatar_url %>" alt="Lector1" class="img-circle"></div>              
               <div class="desc">            
                 <h3><%= c.full_name %></h3>
+                <p><%= c.email %></p>
+                <p><%= c.nationality %></p>
                 <p><%= @ship_name%></p>
                 <%  if @user.is_friend?(c)
                       @button = "<button id='#btn-unfriend'>Unfriend</button>" 

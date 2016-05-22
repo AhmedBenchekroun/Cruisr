@@ -33,10 +33,13 @@ def initialize(filename=File.absolute_path('db/data/crew_member.csv'))
 
     crew_members = CrewMember.all
 
-    crew_members.each do |c1|
-      nb_friends = 1 + rand(crew_members.length)
-      (1..nb_friends).each do |c2|
-        c1.add_friend(CrewMember.find(c2)) unless c1 == CrewMember.find(c2)
+    crew_members.each do |crew|
+      #nb_friends = 1 + rand(crew_members.length)
+      
+      nb_friends = 1 + rand(3)
+      #friend = 1 + rand(crew_members.length)
+      (1..nb_friends).each do |friend_id|
+        crew.add_friend(CrewMember.find(friend_id)) unless crew == CrewMember.find(friend_id)
       end
       
     end
