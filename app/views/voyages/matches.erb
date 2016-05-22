@@ -34,7 +34,7 @@
             </thead>
             <tbody>
               <% @voyages.each do |v| %>
-              <% @friend_list = @user.list_of_friends(v.crew_members) %>
+              <% @friend_list = @user.friends_on_voyage(v.id) %>
               <% @ship_name = v.ship.name %>
                 <tr>
                   <td><%= @ship_name %></td>

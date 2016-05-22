@@ -29,10 +29,11 @@ class CrewMember < ActiveRecord::Base
     end
   end
 
-  def list_of_friends(crew_members)
-    friend_list = []
-    crew_members.each do |crew_member|   
-    friend_list << crew_member if is_friend?(crew_member)    
+  def friends_on_voyage(voyage_id)
+    friend_list =[]
+    voyage = Voyage.find(voyage_id)
+    voyage.crew_members.each do |crew_member|
+      friend_list << crew_member if friends.include?(crew_member)
     end
     friend_list
   end
