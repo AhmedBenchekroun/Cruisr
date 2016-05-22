@@ -3,7 +3,11 @@
 
 /*================= FONT (OPEN SANS) IMPORT FROM GOOGLE FONTS =================*/
 
-
+.photo {
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+}
 
 
 /*=============================== COMMON STYLES BEGIN ===============================*/
@@ -537,8 +541,9 @@ deeper {
 header {
 
 background-color: #000;
-  /*-moz-opacity: 0.50;
-  opacity: 0.5;*/
+/*	border-color: rgba(255, 255, 255, 0.6);
+	background: rgba(0,0,0,0.2);*/
+
 
 }
 header .container {
@@ -567,7 +572,7 @@ header .col-sm-6 {
 }
 
 .soc_nav li {
-	margin-left: 20px;
+	margin-left: 0px;
 	list-style: none;
 	display: inline-block;
 }
@@ -577,9 +582,9 @@ header .col-sm-6 {
 }
 
 .soc_nav li a {
-	font-size: 22px;
-	line-height: 100px;
-	display: block;
+	font-size: 20px;
+	line-height: 120px;
+	/*display: block;*/
 	padding: 0 10px;
 	text-align: center;
 	opacity: 0.3;

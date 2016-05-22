@@ -1,7 +1,17 @@
   <div> 
- 
-  <section id="description">
+   <div lass="col-md-12" > 
+
+<ul class="breadcrumb" style="padding-left:150px; margin-bottom:0;"">
+    <li><a href="/">Home</a></li>
+    <li><a href="voyages">Itineraries</a></li>
+    <li><a class="active">Matches</a></li>
+</ul>
+   <div id="photo">
+<img src="/images/cruise6.jpg" alt="" style="width: 100%;" ></div>
+
+  <section id="description"  style="margin-top:0;">
     <div class="container">
+      
       <div class="row wow fadeInLeft" data-wow-duration="1.5s" data-wow-offset="100">
         <div class="col-md-12">
           <h2 style="text-align:center"> List of matching itineraries at <%= @port %> on <%= @date %></h2>  
@@ -13,12 +23,12 @@
           <table class="table table-hover">
             <thead>
               <tr class="title">
-                <th colspan="3"style="text-align: center;">ships and friends</th>
+                <th colspan="4" style="text-align: center;">Ships on port and you friends</th>
               </tr>
               <tr>
                 <th>Ships on Port</th>
-                <th>Friends on Board</th>
-                 <th></th>
+                <th colspan="2"  >Friends on Board</th>
+               
                 <th>Crew Members</th>
               </tr>
             </thead>
@@ -42,4 +52,5 @@
   </section>
 
  
+  </div>
   </div>

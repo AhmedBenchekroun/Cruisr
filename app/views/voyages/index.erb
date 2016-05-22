@@ -1,8 +1,15 @@
+<div lass="col-md-12" > 
 
+<ul class="breadcrumb" style="padding-left:150px; margin-bottom:0;"">
+    <li><a href="/">Home</a></li>
+    <li><a class="active">Itineraries</a></li>
+</ul>
+  <div id="photo">
+<img src="/images/cruise1.jpg" alt="" style="width: 100%;" ></div>
 
   <div> 
  
-  <section id="description">
+  <section id="description"  style="margin-top:0;">
     <div class="container">
     
 
@@ -34,7 +41,7 @@
                 <td><%= v.start_date %> - <%= v.end_date %> </td>
                 <td><%= v.ship[:name] %></td>
                 <td><%= v.start_port[:city] %> - <%= v.start_port[:country] %> </td>
-                <td>  <a href="/voyages/<%= v.id %>/matches">Let's check this one</a> </td>
+                <td>  <a href="/voyages/<%= v.id %>/matches"><strong>Let's check this one</strong></a> </td>
               </tr>
               <% end %>
             </tbody>
@@ -47,5 +54,7 @@
   </section>
 
  
+  </div>
+
   </div>
 

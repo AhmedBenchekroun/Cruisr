@@ -22,29 +22,34 @@
   <title></title>
 </head>
 <body>
+
+<div id="wrap"> 
 <header id="header">
     <div class="container">
       <div class="row">
-        <div class="col-sm-6">
+        <div class="col-sm-1">
           <a href="/" class="logo"><img src="/images/logo.png" alt="CRUISR LOGO" height="40" width="180" /></a> 
         </div>
-        <div class="col-sm-6">
+        <div class="col-sm-11">
           <ul class="soc_nav">
-
-            <li>
+            <li><a href="/voyages">Itineraries</a></li>|
+            <li><a href="/profile">Friends</a></li>|
+         
+            <li style="" >
             <% if session[:id] == nil %>
-          <a href="/signin_signup">Sign in/ Sign up</a>
+          <a href="/signin_signup">Sign in/Sign up</a>
           <% else %>
-            <span> <a href="/profile"><%= current_user.full_name %></a> / <a href="/logout">Logout</a></span>
+          <a href="/profile"><%= current_user.full_name %></a>/<a href="/logout">Logout</a>
           <% end %></li>
-          </ul>
 
+            
 
         </div>
       </div>
     </div>
 
   </header>
+
  
 
   <%= yield %>
@@ -77,7 +82,7 @@
 
   <!-- FOOTER END --> 
 
-  
+  </div>
 </body>
 </html>
 

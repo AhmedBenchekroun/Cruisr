@@ -1,18 +1,38 @@
-<div>
-<h1>Your Profile</h1> 
 
-<div>
+<div lass="col-md-12" > 
+
+<ul class="breadcrumb" style="padding-left:150px; margin-bottom:0;"">
+    <li><a href="/">Home</a></li>
+    <li><a class="active">Profile</a></li>
+</ul>
+ <div id="photo">
+<img src="/images/cruise5.jpg" alt="" style="width: 100%;" ></div>
+ 
+<div> 
+ 
+  <section id="description">
+    <div class="container">
+      <div class="row wow fadeInLeft" data-wow-duration="1.5s" data-wow-offset="100">
+        <div class="col-md-12">
+
+<h1 style="text-align:center;">Your Profile</h1> 
+<br>
+<div align="center">
   <div class="photo"><img src="<%= @user.gravatar_url %>" alt="Lector1" class="img-circle"></div>
-  <div> <%= @user.full_name %></div>
-
-
+  <H3> <%= @user.full_name %></H3>
 </div>
+        </div>
+      </div>
+    </div>
+   </section>
+
+ <h2 style="text-align:center;">Your Friends</h2>
 
   <section id="timeline">
     <div class="container-fluid wow fadeInRight" data-wow-duration="1s">
       <div id="timeline-slider" class="owl-carousel">
 
-      <h2>Your Friends</h2>
+     
         <% @user.friends.each do |f| %>
           <div class="item">
               <div class="photo"><img src="<%= f.gravatar_url %>" alt="Lector1" class="img-circle"></div>
@@ -26,7 +46,11 @@
         <% end %>
       </div>
     </div>
-    
   </section>
+
+
+</div>
+
+
 </div>
 
