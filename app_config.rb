@@ -1,5 +1,5 @@
 require 'active_record'
-require 'pry' if development?
+#require 'pry' if development?
 require 'active_support/all'
 require './lib/ship_importer'
 require './lib/crew_member_importer'
