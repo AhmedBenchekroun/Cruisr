@@ -1,4 +1,5 @@
 require 'active_record'
+require 'pg' if production?
 #require 'pry' if development?
 require 'active_support/all'
 require './lib/ship_importer'
@@ -15,10 +16,29 @@ module AppConfig
 
   def self.establish_connection
     puts "Connecting to database '#{DATABASE_PATH}'"
-    ActiveRecord::Base.establish_connection(
-      adapter: 'sqlite3',
-      database: DATABASE_PATH
-    )
+    
+    if development? 
+      ActiveRecord::Base.establish_connection(
+        adapter: 'sqlite3',
+        database: DATABASE_PATH
+      )
+    
+    elsif production?
+      
+      ActiveRecord::Base.establish_connection(
+        adapter: 'postgresql',
+        database: 'postgres',
+        username: 'development',
+        password: 'development',
+        host: 'localhost',
+        port: 5432,
+        pool: 5,
+        encoding: 'unicode',
+        min_messages: 'error'
+      )
+    end
+
+puts 'CONNECTED'
   end
 
 end
